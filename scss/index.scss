@@ -1,0 +1,83 @@
+@use 'reset';
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+// images
+.grid{
+    width: 90%;
+    max-width: 56.25rem;
+    margin: 2rem auto;
+    padding: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(12.5rem, 1fr) );
+    gap: 1em;
+
+    &__img{
+        cursor: pointer;
+        transition: all .5s ease;
+        border-radius: 1.25rem;
+        box-shadow: 21px 21px 43px #bcbcbc,
+                    -21px -21px 43px #ffffff;
+
+        &:hover{
+            transform: scale(.9);
+        }
+        
+        &:active{
+            transform: scale(1.1);
+        }
+    }
+}
+
+// lightbox button
+.lightbox{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0 ,0 ,0 , .4);
+    backdrop-filter: blur(2rem);
+    position:  fixed;
+    top: 0;
+    left: 0;
+    color: white;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s ease;
+
+    &.isActive{
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    &__btn{
+        width: 3rem;
+        cursor: pointer;
+        transform: all .5s ease;
+
+        &:hover{
+            transform: scale(.9);
+        }
+
+        &:active{
+            transform: scale(1.1);
+        }
+    } 
+
+    &__img{
+        width: 80%;
+        height: 70vh;
+        object-fit: contain;
+    } 
+} 
